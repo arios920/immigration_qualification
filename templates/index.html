@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Immigration Qualification Assessment - Resume</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Immigration Qualification Assessment - Resume</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="cv">
+        <button type="submit">Upload CV</button>
+    </form>
+    {% if result %}
+        <h2>Assessment Result</h2>
+        <div class="rating-box {{ result['rating'] }}">
+            Rating: {{ result['rating'] }}
+        </div>
+        <div>
+            <p>Awards: {{ result['achievements'][0]['score'] }}</p>
+            <p>Membership: {{ result['achievements'][1]['score'] }}</p>
+            <p>Press: {{ result['achievements'][2]['score'] }}</p>
+            <p>Judging: {{ result['achievements'][3]['score'] }}</p>
+            <p>Original contribution: {{ result['achievements'][4]['score'] }}</p>
+            <p>Scholarly articles: {{ result['achievements'][5]['score'] }}</p>
+            <p>Critical employment: {{ result['achievements'][6]['score'] }}</p>
+            <p>High remuneration: {{ result['achievements'][7]['score'] }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
